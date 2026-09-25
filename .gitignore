@@ -1,0 +1,6 @@
+# the rehearsal tool is local only — it is not part of the show
+rehearsal.html
+assets/rehearsal/
+
+# local preview config
+.claude/
