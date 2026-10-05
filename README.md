@@ -9,7 +9,7 @@ dropped onto any static host as-is.
 ```
 index.html      the whole deck — markup, styles, script, images and fonts in one file
 assets/         the source images, kept for editing (index.html has embedded copies),
-                plus journey-clip.mp4 and journey-music.mp3, which slide 25 loads from here,
+                plus journey-clip.mp4, the corporate film slide 25 loads from here,
                 and rehearsal/ — the spoken script used by rehearsal.html
   awards/       award badges, partner logotypes, lotus background
   icons/        the twelve milestone badges
@@ -63,11 +63,9 @@ subdirectory such as `/roadshow/`. Nothing is linked externally, so it works at 
   from their place on one slide to their place on the next, like PowerPoint's Morph.
   This needs a browser with View Transitions (Chrome, Edge, Safari 18+, recent
   Firefox); elsewhere slides fade.
-- Slide 25 plays by itself for about 111 seconds: "Let's begin your journey to Vietnam with
-  Vietnam Airlines" (5s), 91 seconds of film (the first 17s of clip 1, then 2:10–2:24,
-  0:13–0:48 and 3:08–3:33 of clip 2, all muted), then "See you in Vietnam" (5s), then black fades in with the
-  Vietnam Airlines logo (10s). Music starts as the slide opens, fading in, and fades out over the
-  last 5 seconds.
+- Slide 25 runs by itself for about 3 minutes 35 seconds: "Let's begin your journey to Vietnam
+  with Vietnam Airlines" (5s), the corporate film with its own English narration (3:15), then
+  "See you in Vietnam" (5s), then black fades in with the Vietnam Airlines logo (10s).
   Browsers only allow sound after a key press or click, so arrive on it with the keyboard or
   the arrows rather than by loading `#25` directly.
 - Slide 13 opens with a map intro of about 25 seconds (Vietnam, then the three hubs,
