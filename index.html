@@ -1095,13 +1095,17 @@ html.calm .slide.nm .nm-rule{ transform:scaleX(1); }
   letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); }
 .of-card dd{ margin:0; font-family:var(--font-display); font-weight:800; font-size:clamp(13px,1.35cqw,21px); color:#fff; white-space:nowrap; }
 
-/* video journey (slide 25): the intro line rises for about 5s, then the corporate film (assets/journey-clip.mp4,
-   3:15, with its own English narration) plays with sound, then "See you in Vietnam". 5s after that line, black
-   fades in over 5s and the Vietnam Airlines logo rises in the middle for the last 10s.
+/* video journey (slide 25): the opening line runs over journey-intro.mp3 — 8.4s of the instrumental theme
+   (clip/nhac.mp3 from 0:06, nudged from 106 to the film's 112 BPM). The film (assets/journey-clip.mp4, 3:15,
+   with its own English narration) starts at 6.4s, so the last two seconds of the bed fade out underneath it,
+   the way a DJ rides one track into the next. When the film ends, journey-outro.mp3 (from 0:54, already at the
+   film's closing 124 BPM) carries "See you in Vietnam" and the logo, fading away over its last nine seconds.
    initVideoJourney drives the phases with p-intro / p-clip / p-end / p-logo. */
 .slide.vj{ background:radial-gradient(70% 70% at 50% 50%, #0A3A50 0%, #052536 55%, #02121C 100%); overflow:hidden; }
-.vj-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1s ease; }
-.slide.vj.p-clip .vj-video{ opacity:1; }
+.vj-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0;
+  transition:opacity 1.2s ease, filter 1.2s ease, transform 1.2s ease; }
+/* the film only shows for its own stretch; the opening line runs over the lead-in music */
+.slide.vj.p-clip .vj-video{ opacity:1; filter:none; transform:none; }
 .vj-glow{ position:absolute; left:50%; top:50%; width:1400px; height:600px; margin:-300px 0 0 -700px; border-radius:50%;
   background:radial-gradient(closest-side, rgba(240,200,105,.16), rgba(240,200,105,0)); opacity:0; transition:opacity 1.6s ease; pointer-events:none; }
 .slide.vj.p-intro .vj-glow, .slide.vj.p-end .vj-glow{ opacity:1; }
@@ -2003,7 +2007,7 @@ html[data-dir="back"]::view-transition-new(root){ animation-name:vtDrop; }
         <div class="slide-body">
           <div class="of-grid">
             <div class="of-col" data-r="up" style="--i:2">
-              <div class="of-city paris"><svg viewBox="0 0 400 370" aria-hidden="true"><path class="of-d" pathLength="1" style="--d:.15s" d="M148,300 C152,272 166,262 175,255 C183,236 185,222 186,207 C189,166 194,118 196,78"/><path class="of-d" pathLength="1" style="--d:.15s" d="M252,300 C248,272 234,262 225,255 C217,236 215,222 214,207 C211,166 206,118 204,78"/><path class="of-d soft" pathLength="1" style="--d:.3s" d="M168,300 C171,278 178,264 183,255 M232,300 C229,278 222,264 217,255"/><path class="of-d gold" pathLength="1" style="--d:.45s" d="M156,300 C172,252 228,252 244,300"/><path class="of-d soft" pathLength="1" style="--d:.55s" d="M166,300 C178,266 222,266 234,300"/><path class="of-d soft" pathLength="1" style="--d:.6s" d="M160,282 H240 M174,300 L200,262 M226,300 L200,262"/><path class="of-d soft" pathLength="1" style="--d:.75s" d="M180,232 H220 M181,255 L214,207 M219,255 L186,207"/><path class="of-d soft" pathLength="1" style="--d:.9s" d="M191,160 H209 M188,207 L205,120 M212,207 L195,120 M194,120 H206"/><path class="of-d gold" pathLength="1" style="--d:1s" d="M162,255 H238 M162,249 H238"/><path class="of-d gold" pathLength="1" style="--d:1.1s" d="M176,207 H224 M176,202 H224"/><path class="of-d gold" pathLength="1" style="--d:1.2s" d="M190,78 H210 M190,73 H210"/><path class="of-d" pathLength="1" style="--d:1.3s" d="M192,73 V62 H208 V73 M200,62 V40"/><circle class="of-tip" cx="200" cy="37" r="3.4"/><path class="of-d soft" pathLength="1" style="--d:1.35s" d="M0,300 H400"/><path class="of-water" d="M0,316 H400 M0,334 H400 M0,352 H400"/><path class="of-d soft" pathLength="1" style="--d:1.45s" d="M40,300 v-40 q0,-12 12,-12 h34 q12,0 12,12 v40 M52,272 h34"/><path class="of-d soft" pathLength="1" style="--d:1.55s" d="M316,300 v-52 h56 v52 M330,262 h28 M344,248 v-16"/><g class="of-pin"><path class="of-pin-p" d="M200,352 c-14,-18 -22,-28 -22,-38 a22,22 0 0 1 44,0 c0,10 -8,20 -22,38 Z"/><circle class="of-pin-c" cx="200" cy="314" r="7"/><circle class="of-pulse" cx="200" cy="352" r="10"/></g></svg><p class="of-city-n">Paris<span>France</span></p></div>
+              <div class="of-city paris"><svg viewBox="0 0 400 370" aria-hidden="true"><path class="of-d" pathLength="1" style="--d:0.15s" d="M155,300 Q158,276 166.5,251"/><path class="of-d" pathLength="1" style="--d:0.21s" d="M179,300 Q178.5,276 176,251"/><path class="of-d" pathLength="1" style="--d:0.27s" d="M245,300 Q242,276 233.5,251"/><path class="of-d" pathLength="1" style="--d:0.33s" d="M221,300 Q221.5,276 224,251"/><path class="of-d" pathLength="1" style="--d:0.39s" d="M149,300 H185 M215,300 H251"/><path class="of-d" pathLength="1" style="--d:0.45s" d="M169,233 Q174,212 179,191"/><path class="of-d" pathLength="1" style="--d:0.51s" d="M231,233 Q226,212 221,191"/><path class="of-d" pathLength="1" style="--d:0.57s" d="M181,182 Q189,110 194,48"/><path class="of-d" pathLength="1" style="--d:0.63s" d="M219,182 Q211,110 206,48"/><path class="of-d" pathLength="1" style="--d:0.69s" d="M200,22 V10"/><path class="of-d soft" pathLength="1" style="--d:0.50s" d="M155,300 L178.6,287.9 M179,300 L156.8,287.9 M156.8,287.9 L178,275.8 M178.6,287.9 L159.4,275.8 M156.8,287.9 L178.6,287.9 M159.4,275.8 L177.1,263.4 M178,275.8 L162.6,263.4 M159.4,275.8 L178,275.8 M162.6,263.4 L176,251 M177.1,263.4 L166.5,251 M162.6,263.4 L177.1,263.4"/><path class="of-d soft" pathLength="1" style="--d:0.59s" d="M245,300 L221.4,287.9 M221,300 L243.2,287.9 M243.2,287.9 L222,275.8 M221.4,287.9 L240.6,275.8 M243.2,287.9 L221.4,287.9 M240.6,275.8 L222.9,263.4 M222,275.8 L237.4,263.4 M240.6,275.8 L222,275.8 M237.4,263.4 L224,251 M222.9,263.4 L233.5,251 M237.4,263.4 L222.9,263.4"/><path class="of-d soft" pathLength="1" style="--d:0.68s" d="M166,251 V233 M172,251 V233 M178,251 V233 M184,251 V233 M190,251 V233 M196,251 V233 M202,251 V233 M208,251 V233 M214,251 V233 M220,251 V233 M226,251 V233 M232,251 V233 M238,251 V233"/><path class="of-d soft" pathLength="1" style="--d:0.77s" d="M169,233 L228.5,222.5 M231,233 L171.5,222.5 M171.5,222.5 L226,212 M228.5,222.5 L174,212 M171.5,222.5 L228.5,222.5 M174,212 L223.5,201.5 M226,212 L176.5,201.5 M174,212 L226,212 M176.5,201.5 L221,191 M223.5,201.5 L179,191 M176.5,201.5 L223.5,201.5"/><path class="of-d soft" pathLength="1" style="--d:0.86s" d="M182,191 V182 M187,191 V182 M192,191 V182 M197,191 V182 M202,191 V182 M207,191 V182 M212,191 V182 M217,191 V182"/><path class="of-d soft" pathLength="1" style="--d:0.95s" d="M181,182 L217.3,166.1 M219,182 L182.7,166.1 M182.7,166.1 L215.6,150.5 M217.3,166.1 L184.4,150.5 M182.7,166.1 L217.3,166.1 M184.4,150.5 L214,135.1 M215.6,150.5 L186,135.1 M184.4,150.5 L215.6,150.5 M186,135.1 L212.5,120 M214,135.1 L187.5,120 M186,135.1 L214,135.1 M187.5,120 L211,105.1 M212.5,120 L189,105.1 M187.5,120 L212.5,120 M189,105.1 L209.7,90.4 M211,105.1 L190.3,90.4 M189,105.1 L211,105.1 M190.3,90.4 L208.4,76 M209.7,90.4 L191.6,76 M190.3,90.4 L209.7,90.4 M191.6,76 L207.1,61.9 M208.4,76 L192.9,61.9 M191.6,76 L208.4,76 M192.9,61.9 L206,48 M207.1,61.9 L194,48 M192.9,61.9 L207.1,61.9"/><path class="of-d soft" pathLength="1" style="--d:1.04s" d="M195,48 V30 M198,48 V30 M202,48 V30 M205,48 V30"/><path class="of-d gold" pathLength="1" style="--d:0.43s" d="M176,294 C180,258 220,258 224,294"/><path class="of-d gold" pathLength="1" style="--d:0.51s" d="M160,251 H240 M160,233 H240 M160,251 V233 M240,251 V233"/><path class="of-d gold" pathLength="1" style="--d:0.59s" d="M157,233 H243"/><path class="of-d gold" pathLength="1" style="--d:0.67s" d="M177,191 H223 M177,182 H223 M177,191 V182 M223,191 V182"/><path class="of-d gold" pathLength="1" style="--d:0.75s" d="M192,48 H208 M192,30 H208 M192,48 V30 M208,48 V30"/><path class="of-d gold" pathLength="1" style="--d:0.83s" d="M190,30 H210 M194,30 L200,22 L206,30"/><circle class="of-tip" cx="200" cy="8" r="3"/><path class="of-d soft" pathLength="1" style="--d:1.35s" d="M0,300 H400"/><path class="of-water" d="M0,316 H400 M0,334 H400 M0,352 H400"/><path class="of-d soft" pathLength="1" style="--d:1.45s" d="M30,300 v-34 q0,-10 10,-10 h30 q10,0 10,10 v34 M40,282 h30"/><path class="of-d soft" pathLength="1" style="--d:1.55s" d="M320,300 v-44 h50 v44 M332,268 h26 M345,256 v-14"/><g class="of-pin"><path class="of-pin-p" d="M200,352 c-14,-18 -22,-28 -22,-38 a22,22 0 0 1 44,0 c0,10 -8,20 -22,38 Z"/><circle class="of-pin-c" cx="200" cy="314" r="7"/><circle class="of-pulse" cx="200" cy="352" r="10"/></g></svg><p class="of-city-n">Paris<span>France</span></p></div>
               <div class="of-card">
                 <h3>Vietnam Airlines Europe Branch</h3>
                 <p class="of-addr">5th Floor, 5 Rue Sextius Michel, 75015 Paris, France</p>
@@ -2032,6 +2036,8 @@ html[data-dir="back"]::view-transition-new(root){ animation-name:vtDrop; }
     <!-- 25 : VIDEO JOURNEY — intro line, the corporate film with its own sound, "See you in Vietnam", then the logo -->
     <section class="slide dark vj" data-section="04 · Amsterdam ⇄ Hanoi">
       <video class="vj-video" src="assets/journey-clip.mp4?v=5" playsinline preload="auto" aria-label="Vietnam Airlines corporate film"></video>
+      <audio class="vj-in" src="assets/journey-intro.mp3?v=3" preload="auto"></audio>
+      <audio class="vj-out" src="assets/journey-outro.mp3?v=3" preload="auto"></audio>
       <div class="vj-glow"></div>
       <h2 class="vj-text vj-intro">Let’s begin your journey to <span>Vietnam</span><br>with Vietnam Airlines</h2>
       <h2 class="vj-text vj-final">See you in <span>Vietnam</span></h2>
@@ -2590,12 +2596,13 @@ html[data-dir="back"]::view-transition-new(root){ animation-name:vtDrop; }
   var slogan = initSlogan(document.querySelector('.slide.nm'));
   if(slogan) routeMaps.push(slogan);
 
-  /* ---- video journey (slide 25): intro line 5s → the 3:15 corporate film with its own sound →
-     "See you in Vietnam" 5s → black + logo 10s ---- */
+  /* ---- video journey (slide 25): lead-in music 6s under the opening line → the 3:15 film with its own
+     sound → tail music under "See you in Vietnam" 5s and the logo 10s ---- */
   function initVideoJourney(root){
     if(!root) return null;
     var video = root.querySelector('.vj-video');
-    var INTRO = 5000, CLIP = 196000, FINAL = 5000, timers = [];
+    var lead = root.querySelector('.vj-in'), tail = root.querySelector('.vj-out');
+    var INTRO = 6400, CLIP = 196000, FINAL = 5000, timers = [];   // CLIP is measured from the start of the film
     function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
     function clear(){ timers.forEach(clearTimeout); timers = []; }
     function phase(p){ root.classList.remove('p-intro', 'p-clip', 'p-end', 'p-logo'); if(p) root.classList.add(p); }
@@ -2604,20 +2611,22 @@ html[data-dir="back"]::view-transition-new(root){ animation-name:vtDrop; }
     function finish(){
       if(!root.classList.contains('p-clip')) return;
       clear(); video.pause(); phase('p-end');
+      rewind(tail); start(tail);                 // the film's theme keeps going under the last words
       later(function(){ phase('p-logo'); }, FINAL);
     }
     video.addEventListener('ended', finish);
     return {
       canvas: root,
       play: function(){
-        clear(); rewind(video);
+        clear(); rewind(video); rewind(lead); rewind(tail);
         phase(''); void root.offsetWidth; phase('p-intro');
+        start(lead);                                   // the swell under the opening line
         later(function(){
           phase('p-clip'); start(video);
-          later(finish, CLIP + 600);   // in case the clip stalls, move on anyway
+          later(finish, CLIP + 600);                   // in case the film stalls, move on anyway
         }, INTRO);
       },
-      stop: function(){ clear(); video.pause(); phase(''); },
+      stop: function(){ clear(); video.pause(); lead.pause(); tail.pause(); phase(''); },
       skip: function(){ return false; }
     };
   }
